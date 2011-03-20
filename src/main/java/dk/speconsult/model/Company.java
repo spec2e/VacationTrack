@@ -1,13 +1,14 @@
 package dk.speconsult.model;
 
 import activejdbc.Model;
-import activejdbc.annotations.BelongsTo;
+import activejdbc.annotations.Table;
 
 /**
  * Created by IntelliJ IDEA.
- * User: Soren Pedersen
- * Date: 18-03-11
- * Time: 22:02
+ * User: dev
+ * Date: 20-03-11
+ * Time: 19:56
  * To change this template use File | Settings | File Templates.
  */
-public class Employee extends Model {}
+public class Company extends Model {
+}

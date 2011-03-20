@@ -5,7 +5,8 @@ import dk.speconsult.web.BaseActionBean
 import net.sourceforge.stripes.action.DefaultHandler
 import net.sourceforge.stripes.action.UrlBinding
 import activejdbc.Base
-import dk.speconsult.model.Employee;
+import dk.speconsult.model.Employee
+import dk.speconsult.model.Company;
 
 /**
  * Created by IntelliJ IDEA.
@@ -27,10 +28,14 @@ public class LoginBean extends BaseActionBean {
             Employee e = new Employee()
             e.set("firstname", "John")
             e.set("lastname", "Doe")
+            Company company = Company.createIt("company", "Maersk")
+            e.setParent(company)
             e.saveIt()
-            List employees = e.findAll()
-            println("found ${employees.size()} employees")
             Base.commitTransaction();
+        }catch(Throwable thr) {
+            thr.printStackTrace()
+            throw thr
+            Base.rollbackTransaction()
         } finally {
             Base.close();
         }

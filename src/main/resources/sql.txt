@@ -1,0 +1,13 @@
+CREATE  TABLE IF NOT EXISTS `vacationrecord`.`Employees` (
+  `id` INT NOT NULL ,
+  `firstname` VARCHAR(45) NULL ,
+  `lastname` VARCHAR(45) NULL ,
+  `employeeid` VARCHAR(45) NULL ,
+  `administrator` TINYINT NULL ,
+  `compayny` INT NULL );
+
+
+CREATE  TABLE IF NOT EXISTS `VacationRecord`.`Company` (
+  `id` INT NOT NULL ,
+  `company` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) );

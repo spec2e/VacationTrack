@@ -17,7 +17,7 @@ public class LoginBean extends BaseActionBean {
 
     @DefaultHandler
     public Resolution showLogin() {
-        forward("/WEB-INF/login.jsp")
+        forward("/WEB-INF/jsp/login.jsp")
     }
 
 }

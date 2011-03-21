@@ -30,7 +30,6 @@ public class LoginInterceptor implements Interceptor {
 
         Class cls = actionBean.getClass();
 
-        print("TEST")
         if (ctx.getEmployee() == null && !ALLOW.contains(cls)) {
 
             resolution = new RedirectResolution(LoginActionBean.class);

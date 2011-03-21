@@ -24,7 +24,7 @@ public class ExceptionHandler extends DefaultExceptionHandler {
                 Base.rollbackTransaction();
                 Base.close();
             }
-        } catch (SQLException e) {
+        } catch (Throwable e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 

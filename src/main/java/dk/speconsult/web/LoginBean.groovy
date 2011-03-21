@@ -21,24 +21,17 @@ public class LoginBean extends BaseActionBean {
     @DefaultHandler
     public Resolution showLogin() {
 
-        Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/vacationrecord", "root", "qq");
-        Base.connection().setAutoCommit(false);
+        Employee e = new Employee()
+        e.set("firstname", "John")
+        e.set("lastname", "Doe")
+        Company company = Company.createIt("company", "Maersk")
+        e.setParent(company)
+        e.saveIt()
 
-        try {
-            Employee e = new Employee()
-            e.set("firstname", "John")
-            e.set("lastname", "Doe")
-            Company company = Company.createIt("company", "Maersk")
-            e.setParent(company)
-            e.saveIt()
-            Base.commitTransaction();
-        }catch(Throwable thr) {
-            thr.printStackTrace()
-            throw thr
-            Base.rollbackTransaction()
-        } finally {
-            Base.close();
+        if(true) {
+            throw new Exception("ROLL BACK!!!!");
         }
+
         forward("/WEB-INF/jsp/login.jsp")
     }
 

@@ -18,7 +18,7 @@ import net.sourceforge.stripes.controller.Interceptor
  */
 public class LoginInterceptor implements Interceptor {
 
-    private static final def ALLOW = [LoginActionBean.class]
+    private static final ArrayList<Class<? extends BaseActionBean >> ALLOW = [LoginActionBean.class]
 
     public Resolution intercept(ExecutionContext execContext) throws Exception {
 

@@ -20,13 +20,13 @@ import net.sourceforge.stripes.action.StrictBinding;
 @UrlBinding("/login.action")
 public class LoginActionBean extends BaseActionBean {
 
-    @StrictBinding(allow = ["login"])
-    @Validate(required = true, on=["login"] )
+    @Validate(required = true, on = ["login"])
     private String userName;
 
-    @StrictBinding(allow = ["login"])
-    @Validate(required = true, on=["login"] )
+    @Validate(required = true, on = ["login"])
     private String password;
+
+    private String loginUrl;
 
     @DefaultHandler
     public Resolution showLogin() {
@@ -37,12 +37,17 @@ public class LoginActionBean extends BaseActionBean {
 
     public Resolution login() {
 
-        Employee e = new Employee()
-        e.set("firstname", "John")
-        e.set("lastname", "Doe")
-        Company company = Company.createIt("company", "Maersk")
-        e.setParent(company)
-        e.saveIt()
+        if (loginUrl) {
+            redirect(loginUrl)
+        } else {
+            Employee e = new Employee()
+            e.set("firstname", "John")
+            e.set("lastname", "Doe")
+            Company company = Company.createIt("company", "Maersk")
+            e.setParent(company)
+            e.saveIt()
+
+        }
 
 
     }

@@ -5,7 +5,7 @@ import net.sourceforge.stripes.exception.DefaultExceptionHandler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.SQLException;
+
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,8 +16,11 @@ import java.sql.SQLException;
  */
 public class ExceptionHandler extends DefaultExceptionHandler {
 
+
     public void catchAllAndRollBack(Throwable thr, HttpServletRequest request, HttpServletResponse response) {
+
         System.err.println("Exception caught. Rolling back and closing connection!");
+        thr.printStackTrace();
 
         try {
             if (!Base.connection().isClosed()) {
@@ -25,7 +28,7 @@ public class ExceptionHandler extends DefaultExceptionHandler {
                 Base.close();
             }
         } catch (Throwable e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
 
     }

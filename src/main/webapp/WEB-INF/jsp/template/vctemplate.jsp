@@ -5,7 +5,8 @@
     <html>
     <head>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/layout.css">
-        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.5.1.min.js"></script>
+        <script type="text/javascript"
+                src="${pageContext.request.contextPath}/resources/js/jquery-1.5.1.min.js"></script>
     </head>
 
     <body>
@@ -19,7 +20,7 @@
 
         <div id="topmenu">
             <ul>
-                <li><a href="#">Personale</a></li>
+                <li><a href="#">Administration</a></li>
                 <li><a href="#">Ferie</a></li>
                 <li><a href="#">Indstillinger</a></li>
             </ul>
@@ -43,13 +44,15 @@
 
         </div>
 
+
+        <div id="footer">
+            <stripes:layout-component name="footer">
+                <jsp:include page="footer.jsp"/>
+            </stripes:layout-component>
+        </div>
+
     </div>
 
-    <div id="footer">
-        <stripes:layout-component name="footer">
-
-        </stripes:layout-component>
-    </div>
 
     </body>
 

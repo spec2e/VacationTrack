@@ -1,5 +1,8 @@
 package dk.speconsult.web
 
+import net.sourceforge.stripes.action.Resolution
+import net.sourceforge.stripes.action.DefaultHandler
+
 /**
  * Created by IntelliJ IDEA.
  * User: dev
@@ -8,6 +11,19 @@ package dk.speconsult.web
  * To change this template use File | Settings | File Templates.
  */
 class ProcessEmployeeBean extends BaseActionBean {
+
+    @DefaultHandler
+    public Resolution editEmployee() {
+        return null;
+    }
+
+    public Resolution createEmployee() {
+        return null;
+    }
+
+    public Resolution deleteEmployee() {
+        return null;
+    }
 
 
 }

@@ -27,6 +27,7 @@
             <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.15" />
             <element id="library" level="project" name="Maven: org.slf4j:slf4j-simple:1.5.10" />
             <element id="library" level="project" name="Maven: org.codehaus.groovy:groovy-all:1.7.4" />
+            <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           </element>
         </element>
       </root>
@@ -298,6 +299,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/javalite/javalite-common/1.1-SNAPSHOT/javalite-common-1.1-SNAPSHOT-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: javax.servlet:jstl:1.2">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/jstl/1.2/jstl-1.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/jstl/1.2/jstl-1.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/jstl/1.2/jstl-1.2-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: javax.servlet:servlet-api:2.5">

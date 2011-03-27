@@ -22,12 +22,12 @@
 #leftmenu {
     float:left;
     margin-right: 10px;
-    width: 120px;
+    width: 160px;
 }
 
 #content {
     float:left;
-    width: 890px;
+    width: 840px;
     min-height:200px;
     border: #d3d3d3 solid 1px;
 }
@@ -74,11 +74,11 @@ body {
     margin: 0;
 }
 
-#leftmenu li a {
+#leftmenu ul li a {
     background-color:#fffff0;
     height: 2em;
     line-height: 2em;
-    width: 9em;
+    width: 12em;
     display: block;
     border: 0.1em solid #dcdce9;
     color: #0d2474;
@@ -87,5 +87,13 @@ body {
 }
 
 #leftmenu li a:hover {
+    background-color:#d3d3d3;
+}
+
+#topmenu ul li a.selected {
+    background-color:#d3d3d3;
+}
+
+#leftmenu ul li a.selected {
     background-color:#d3d3d3;
 }

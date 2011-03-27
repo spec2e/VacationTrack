@@ -25,7 +25,6 @@ public class ExceptionHandler extends DefaultExceptionHandler {
         try {
             if (!Base.connection().isClosed()) {
                 Base.rollbackTransaction();
-                Base.close();
             }
         } catch (Throwable e) {
             e.printStackTrace();

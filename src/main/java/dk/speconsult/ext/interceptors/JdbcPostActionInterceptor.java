@@ -14,7 +14,7 @@ import net.sourceforge.stripes.controller.LifecycleStage;
  * Time: 21:07
  * To change this template use File | Settings | File Templates.
  */
-@Intercepts(LifecycleStage.ResolutionExecution)
+@Intercepts(LifecycleStage.RequestComplete)
 public class JdbcPostActionInterceptor implements Interceptor {
 
     public Resolution intercept(ExecutionContext context) throws Exception {

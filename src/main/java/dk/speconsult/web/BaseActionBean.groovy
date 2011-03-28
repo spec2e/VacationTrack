@@ -15,8 +15,26 @@ import net.sourceforge.stripes.action.RedirectResolution;
  */
 public class BaseActionBean implements ActionBean {
 
-    private ActionBeanContext context;
+    ActionBeanContext context;
     String lastUrl;
+
+    String selectedTopMenu;
+    String selectedLeftMenu;
+
+    Map<String, String> topMenu = [administrationTopMenu: "dk.speconsult.web.ListEmployeesActionBean",
+            vacationTopMenu: "dk.speconsult.web.LoginActionBean",
+            settingsTopMenu: "dk.speconsult.web.LoginActionBean"]
+
+    Map<String, String> adminMenu = [listEmployees: "dk.speconsult.web.ListEmployeesActionBean",
+            createEmployee: "dk.speconsult.web.LoginActionBean",
+            editEmployee: "dk.speconsult.web.LoginActionBean",
+            deleteEmployee: "dk.speconsult.web.LoginActionBean"]
+
+    Map<String, String> vacationMenu = [showVacationPlan: "dk.speconsult.web.ListEmployeesActionBean",
+            createNew: "dk.speconsult.web.LoginActionBean"]
+
+    Map<String, String> settingsMenu = [listHolidays: "dk.speconsult.web.LoginActionBean"]
+
 
     @Override
     public void setContext(ActionBeanContext actionBeanContext) {

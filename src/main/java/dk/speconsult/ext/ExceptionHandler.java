@@ -19,7 +19,7 @@ public class ExceptionHandler extends DefaultExceptionHandler {
 
     public void catchAllAndRollBack(Throwable thr, HttpServletRequest request, HttpServletResponse response) {
 
-        System.err.println("Exception caught. Rolling back and closing connection!");
+        System.err.println("Exception caught. Rolling back!");
         thr.printStackTrace();
 
         try {

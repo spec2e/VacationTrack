@@ -1,7 +1,9 @@
-package dk.speconsult.web
+package dk.speconsult.web.employee
 
 import net.sourceforge.stripes.action.Resolution
 import net.sourceforge.stripes.action.DefaultHandler
+import dk.speconsult.web.BaseActionBean
+import dk.speconsult.model.Employee
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,18 +14,25 @@ import net.sourceforge.stripes.action.DefaultHandler
  */
 class ProcessEmployeeBean extends BaseActionBean {
 
+    Employee employee
+
     @DefaultHandler
+    public Resolution showEmployee() {
+        forward(EMPLOYEE_CREATE_JSP)
+    }
+
     public Resolution editEmployee() {
-        return null;
+        //employee.update()
+        forward(EMPLOYEE_LIST_JSP)
     }
 
     public Resolution createEmployee() {
-        return null;
+        employee.saveIt()
+        redirect(dk.speconsult.web.employee.ListEmployeesActionBean.class)
     }
 
     public Resolution deleteEmployee() {
-        return null;
+        employee.delete();
+        forward(EMPLOYEE_LIST_JSP)
     }
-
-
 }

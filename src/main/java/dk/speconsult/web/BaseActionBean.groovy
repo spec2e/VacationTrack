@@ -15,22 +15,25 @@ import net.sourceforge.stripes.action.RedirectResolution;
  */
 public class BaseActionBean implements ActionBean {
 
+    protected static final String EMPLOYEE_LIST_JSP = "/WEB-INF/jsp/employee/employeeList.jsp"
+    protected static final String EMPLOYEE_CREATE_JSP = "/WEB-INF/jsp/employee/createemployee.jsp"
+
     ActionBeanContext context;
     String lastUrl;
 
     String selectedTopMenu;
     String selectedLeftMenu;
 
-    Map<String, String> topMenu = [administrationTopMenu: "dk.speconsult.web.ListEmployeesActionBean",
+    Map<String, String> topMenu = [administrationTopMenu: "dk.speconsult.web.employee.ListEmployeesActionBean",
             vacationTopMenu: "dk.speconsult.web.LoginActionBean",
             settingsTopMenu: "dk.speconsult.web.LoginActionBean"]
 
-    Map<String, String> adminMenu = [listEmployees: "dk.speconsult.web.ListEmployeesActionBean",
-            createEmployee: "dk.speconsult.web.LoginActionBean",
-            editEmployee: "dk.speconsult.web.LoginActionBean",
-            deleteEmployee: "dk.speconsult.web.LoginActionBean"]
+    Map<String, String> adminMenu = [listEmployees: "dk.speconsult.web.employee.ListEmployeesActionBean",
+            createEmployee: "dk.speconsult.web.employee.ProcessEmployeeBean",
+            editEmployee: "dk.speconsult.web.employee.ProcessEmployeeBean",
+            deleteEmployee: "dk.speconsult.web.employee.ProcessEmployeeBean"]
 
-    Map<String, String> vacationMenu = [showVacationPlan: "dk.speconsult.web.ListEmployeesActionBean",
+    Map<String, String> vacationMenu = [showVacationPlan: "dk.speconsult.web.employee.ListEmployeesActionBean",
             createNewVacationPlan: "dk.speconsult.web.LoginActionBean"]
 
     Map<String, String> settingsMenu = [listHolidays: "dk.speconsult.web.LoginActionBean"]
@@ -50,8 +53,8 @@ public class BaseActionBean implements ActionBean {
         return new ForwardResolution(uri)
     }
 
-    public Resolution redirect(String uri) {
-        return new RedirectResolution(uri)
+    public Resolution redirect(Class clazz) {
+        return new RedirectResolution(clazz)
     }
 
     public Map getCurrentLeftMenu() {

@@ -1,10 +1,11 @@
-package dk.speconsult.web
+package dk.speconsult.web.employee
 
 import net.sourceforge.stripes.action.Resolution
 import net.sourceforge.stripes.action.DefaultHandler
 import dk.speconsult.model.Employee
 import dk.speconsult.model.Company
 import activejdbc.Base
+import dk.speconsult.web.BaseActionBean
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,7 +21,7 @@ class ListEmployeesActionBean extends BaseActionBean {
     @DefaultHandler
     public Resolution listEmployees() {
         employees = Employee.findAll().include(Company.class);
-        forward("/WEB-INF/jsp/employeeList.jsp")
+        forward(EMPLOYEE_LIST_JSP)
     }
 
 

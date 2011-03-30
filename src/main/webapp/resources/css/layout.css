@@ -65,7 +65,8 @@ body {
     border: 0.1em solid #dcdce9;
     color: #0d2474;
     text-decoration: none;
-    text-align: center;
+    text-align: left;
+    padding-left:5px;
 }
 
 #leftmenu ul {
@@ -83,7 +84,8 @@ body {
     border: 0.1em solid #dcdce9;
     color: #0d2474;
     text-decoration: none;
-    text-align: center;
+    text-align: left;
+    padding-left:5px;
 }
 
 #leftmenu li a:hover {
@@ -91,9 +93,10 @@ body {
 }
 
 #topmenu ul li a.selected {
-    background-color:#d3d3d3;
+    background-color:#e6e6fa;
 }
 
 #leftmenu ul li a.selected {
-    background-color:#d3d3d3;
+    background-color:#e6e6fa;
 }
+

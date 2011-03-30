@@ -31,7 +31,7 @@ public class BaseActionBean implements ActionBean {
             deleteEmployee: "dk.speconsult.web.LoginActionBean"]
 
     Map<String, String> vacationMenu = [showVacationPlan: "dk.speconsult.web.ListEmployeesActionBean",
-            createNew: "dk.speconsult.web.LoginActionBean"]
+            createNewVacationPlan: "dk.speconsult.web.LoginActionBean"]
 
     Map<String, String> settingsMenu = [listHolidays: "dk.speconsult.web.LoginActionBean"]
 
@@ -52,6 +52,16 @@ public class BaseActionBean implements ActionBean {
 
     public Resolution redirect(String uri) {
         return new RedirectResolution(uri)
+    }
+
+    public Map getCurrentLeftMenu() {
+         if(selectedTopMenu == 'vacationTopMenu') {
+            return vacationMenu
+        } else if(selectedTopMenu == 'settingsTopMenu') {
+            return settingsMenu
+        } else {
+            return adminMenu
+        }
     }
 
 }

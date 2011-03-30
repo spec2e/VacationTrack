@@ -42,56 +42,22 @@
         </div>
 
         <div id="body">
-
             <div id="leftmenu">
-                <div id="administration">
-                    <ul>
-                        <c:forEach items="${actionBean.adminMenu}" var="menu">
-                            <c:if test="${menu.key == actionBean.selectedLeftMenu or (empty actionBean.selectedLeftMenu && status.count == 1)}">
-                                <c:set var="class" value="selected"/>
-                            </c:if>
-                            <li>
-                                <s:link id="${menu.key}" beanclass="${menu.value}" class="${class}">
-                                    ${menu.key}
-                                    <s:param name="selectedLeftMenu" value="${menu.key}"/>
-                                </s:link>
-                            </li>
-                            <c:remove var="class"/>
-                        </c:forEach>
-                    </ul>
-                </div>
-                <div id="vacation" style="display:none">
-                    <ul>
-                        <c:forEach items="${actionBean.vacationMenu}" var="menu">
-                            <c:if test="${menu.key == actionBean.selectedLeftMenu}">
-                                <c:set var="class" value="selected"/>
-                            </c:if>
-                            <li>
-                                <s:link id="${menu.key}" beanclass="${menu.value}" class="${class}">
-                                    ${menu.key}
-                                    <s:param name="selectedLeftMenu" value="${menu.key}"/>
-                                </s:link>
-                            </li>
-                            <c:remove var="class"/>
-                        </c:forEach>
-                    </ul>
-                </div>
-                <div id="settings" style="display:none">
-                    <ul>
-                        <c:forEach items="${actionBean.settingsMenu}" var="menu">
-                            <c:if test="${menu.key == actionBean.selectedLeftMenu}">
-                                <c:set var="class" value="selected"/>
-                            </c:if>
-                            <li>
-                                <s:link id="${menu.key}" beanclass="${menu.value}" class="${class}">
-                                    ${menu.key}
-                                    <s:param name="selectedLeftMenu" value="${menu.key}"/>
-                                </s:link>
-                            </li>
-                            <c:remove var="class"/>
-                        </c:forEach>
-                    </ul>
-                </div>
+                <c:set var="leftmenu" value="${actionBean.currentLeftMenu}" />
+                <ul>
+                    <c:forEach items="${leftmenu}" var="menu" varStatus="status">
+                        <c:if test="${menu.key == actionBean.selectedLeftMenu or (empty actionBean.selectedLeftMenu && status.count == 1)}">
+                            <c:set var="class" value="selected"/>
+                        </c:if>
+                        <li>
+                            <s:link id="${menu.key}" beanclass="${menu.value}" class="${class}">
+                                <fmt:message key="${menu.key}"/>
+                                <s:param name="selectedLeftMenu" value="${menu}"/>
+                            </s:link>
+                        </li>
+                        <c:remove var="class"/>
+                    </c:forEach>
+                </ul>
             </div>
 
             <div id="content">

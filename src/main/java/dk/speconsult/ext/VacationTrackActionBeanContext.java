@@ -1,5 +1,6 @@
 package dk.speconsult.ext;
 
+import dk.speconsult.model.Company;
 import dk.speconsult.model.Employee;
 import net.sourceforge.stripes.action.ActionBeanContext;
 
@@ -12,13 +13,15 @@ import net.sourceforge.stripes.action.ActionBeanContext;
  */
 public class VacationTrackActionBeanContext extends ActionBeanContext {
 
-    public Employee employee;
+    protected static final String COMPANY = "company";
 
-    public Employee getEmployee() {
-        return employee;
+    public Company getCompany() {
+        //return (Company) this.getRequest().getSession().getAttribute(COMPANY);
+        return (Company) Company.findById(2);
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setCompany(Company company) {
+        this.getRequest().getSession().setAttribute(COMPANY, company);
     }
+
 }

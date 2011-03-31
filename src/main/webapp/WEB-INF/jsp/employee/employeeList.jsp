@@ -11,6 +11,12 @@
             <c:forEach items="${actionBean.employees}" var="employee">
                 <tr>
                     <td>${employee.firstName}&nbsp;${employee.lastName}</td>
+                    <td>
+                        <s:link beanclass="dk.speconsult.web.employee.ProcessEmployeeBean" event="editEmployee">
+                            <s:param name="id" value="${employee.id}"/>
+                            Ret
+                        </s:link>
+                    </td>
                 </tr>
             </c:forEach>
         </table>

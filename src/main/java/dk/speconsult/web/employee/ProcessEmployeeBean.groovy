@@ -1,9 +1,10 @@
-package dk.speconsult.web.employee
+package dk.speconsult.web.employee;
 
 import net.sourceforge.stripes.action.Resolution
 import net.sourceforge.stripes.action.DefaultHandler
 import dk.speconsult.web.BaseActionBean
 import dk.speconsult.model.Employee
+import dk.speconsult.model.Company
 
 /**
  * Created by IntelliJ IDEA.
@@ -22,11 +23,16 @@ class ProcessEmployeeBean extends BaseActionBean {
     }
 
     public Resolution editEmployee() {
-        //employee.update()
-        forward(EMPLOYEE_LIST_JSP)
+        Company company = getContext().getCompany();
+        Employee toUpdate = Employee.findFirst("id=${employee.id} and company_id=${company.id}")
+        toUpdate.copyFrom(employee)
+        toUpdate.saveIt()
+        forward(EMPLOYEE_CREATE_JSP)
     }
 
     public Resolution createEmployee() {
+        Company company = getContext().getCompany();
+        employee.setParent(company)
         employee.saveIt()
         redirect(dk.speconsult.web.employee.ListEmployeesActionBean.class)
     }

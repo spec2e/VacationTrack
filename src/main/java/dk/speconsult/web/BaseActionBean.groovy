@@ -4,7 +4,8 @@ import net.sourceforge.stripes.action.ActionBean;
 import net.sourceforge.stripes.action.ActionBeanContext
 import net.sourceforge.stripes.action.Resolution
 import net.sourceforge.stripes.action.ForwardResolution
-import net.sourceforge.stripes.action.RedirectResolution;
+import net.sourceforge.stripes.action.RedirectResolution
+import dk.speconsult.ext.VacationTrackActionBeanContext;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,7 +19,7 @@ public class BaseActionBean implements ActionBean {
     protected static final String EMPLOYEE_LIST_JSP = "/WEB-INF/jsp/employee/employeeList.jsp"
     protected static final String EMPLOYEE_CREATE_JSP = "/WEB-INF/jsp/employee/createemployee.jsp"
 
-    ActionBeanContext context;
+    VacationTrackActionBeanContext context;
     String lastUrl;
 
     String selectedTopMenu;
@@ -41,11 +42,10 @@ public class BaseActionBean implements ActionBean {
 
     @Override
     public void setContext(ActionBeanContext actionBeanContext) {
-        this.context = actionBeanContext;
+        this.context = (VacationTrackActionBeanContext) actionBeanContext;
     }
 
-    @Override
-    public ActionBeanContext getContext() {
+    public VacationTrackActionBeanContext getContext() {
         return context;
     }
 

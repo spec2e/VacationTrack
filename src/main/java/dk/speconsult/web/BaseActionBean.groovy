@@ -18,6 +18,7 @@ public class BaseActionBean implements ActionBean {
 
     protected static final String EMPLOYEE_LIST_JSP = "/WEB-INF/jsp/employee/employeeList.jsp"
     protected static final String EMPLOYEE_CREATE_JSP = "/WEB-INF/jsp/employee/createemployee.jsp"
+    protected static final String EMPLOYEE_EDIT_JSP = "/WEB-INF/jsp/employee/editemployee.jsp"
 
     VacationTrackActionBeanContext context;
     String lastUrl;

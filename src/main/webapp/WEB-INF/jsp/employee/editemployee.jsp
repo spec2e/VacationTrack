@@ -10,7 +10,7 @@
         <s:form beanclass="dk.speconsult.web.employee.ProcessEmployeeBean">
             <s:label for="employee.firstName"/>
             <%@ include file="employeefields.jspf"%>
-            <s:submit name="createEmployee" value="createEmployee"/>
+            <s:submit name="editEmployee" value="editEmployee"/>
         </s:form>
 
     </stripes:layout-component>

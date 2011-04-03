@@ -5,6 +5,10 @@ import activejdbc.annotations.Table;
 
 public class Company extends Model {
 
+    public void setId(int id) {
+        super.setId(id);
+    }
+
     public int getCompanyId() {
         return getInteger("id");
     }

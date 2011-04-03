@@ -1,0 +1,30 @@
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <s:label for="employee.firstName"/>
+            <s:text name="employee.firstName" value="${actionBean.employee.firstName}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <s:label for="employee.lastName"/>
+            <s:text name="employee.lastName" value="${actionBean.employee.lastName}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <s:label for="employee.employeeId"/>
+            <s:text name="employee.employeeId" value="${actionBean.employee.employeeId}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <s:label for="employee.administrator"/>
+            <s:text name="employee.administrator" value="${actionBean.employee.administrator}"/>
+        </td>
+    </tr>
+    </tbody>
+    <s:hidden name="employee.companyId" value="${actionBean.employee.companyId}" />
+    <s:hidden name="id" value="${actionBean.employee.id}" />
+</table>

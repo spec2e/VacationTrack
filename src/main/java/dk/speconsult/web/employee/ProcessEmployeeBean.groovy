@@ -17,28 +17,40 @@ class ProcessEmployeeBean extends BaseActionBean {
 
     Employee employee
 
+    int id
+
     @DefaultHandler
     public Resolution showEmployee() {
-        forward(EMPLOYEE_CREATE_JSP)
+        if (id > 0) {
+            employee = Employee.findById(id)
+            forward(EMPLOYEE_EDIT_JSP)
+        } else {
+            forward(EMPLOYEE_CREATE_JSP)
+        }
     }
 
     public Resolution editEmployee() {
         Company company = getContext().getCompany();
-        Employee toUpdate = Employee.findFirst("id=${employee.id} and company_id=${company.id}")
+        List<Employee> emps = Employee.find("id=${id} and company_id=${company.id}").include(Company.class)
+        Employee toUpdate = emps[0]
         toUpdate.copyFrom(employee)
         toUpdate.saveIt()
-        forward(EMPLOYEE_CREATE_JSP)
+        redirect(ListEmployeesActionBean.class)
     }
 
     public Resolution createEmployee() {
         Company company = getContext().getCompany();
         employee.setParent(company)
         employee.saveIt()
-        redirect(dk.speconsult.web.employee.ListEmployeesActionBean.class)
+        redirect(ListEmployeesActionBean.class)
     }
 
     public Resolution deleteEmployee() {
-        employee.delete();
-        forward(EMPLOYEE_LIST_JSP)
+        Company company = getContext().getCompany();
+        List<Employee> emps = Employee.find("id=${id} and company_id=${company.id}")
+        Employee toUpdate = emps[0]
+        toUpdate.delete()
+        redirect(ListEmployeesActionBean.class)
     }
+
 }

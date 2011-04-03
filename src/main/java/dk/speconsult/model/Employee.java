@@ -12,6 +12,7 @@ import activejdbc.annotations.BelongsTo;
  */
 public class Employee extends Model {
 
+
     public String getFirstName() {
         return getString("firstname");
     }
@@ -37,7 +38,10 @@ public class Employee extends Model {
     }
 
     public int getAdministrator() {
-        return getInteger("administrator");
+        if(this.get("administrator") != null) {
+            return getInteger("administrator");
+        }
+        return 0;
     }
 
     public void setAdministrator(int administrator) {
@@ -55,4 +59,6 @@ public class Employee extends Model {
     public void setCompanyId(int companyId) {
         setInteger("company_id", companyId);
     }
+
+
 }

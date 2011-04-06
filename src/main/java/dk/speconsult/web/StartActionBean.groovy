@@ -2,6 +2,9 @@ package dk.speconsult.web
 
 import net.sourceforge.stripes.action.DefaultHandler
 import net.sourceforge.stripes.action.Resolution
+import dk.speconsult.model.User
+import net.sourceforge.stripes.validation.ValidateNestedProperties
+import net.sourceforge.stripes.validation.Validate
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,8 +15,29 @@ import net.sourceforge.stripes.action.Resolution
  */
 class StartActionBean extends BaseActionBean {
 
+    @ValidateNestedProperties([
+            @Validate(on=["register"], field="userName", required=true),
+            @Validate(on=["register"], field="password", required=true)
+    ])
+    User user
+
+    @Validate(on=["register"], required=true)
+    String confirmPassword
+
+
     @DefaultHandler
     public Resolution start() {
-        forward("/WEB-INF/jsp/start.jsp")
+        forward(START_JSP)
     }
+
+    public Resolution showRegister() {
+        forward(REGISTER_JSP)
+    }
+
+    public Resolution register() {
+        user.setParent(getCompany())
+        user.saveIt()
+        forward(LOGIN_JSP)
+    }
+
 }

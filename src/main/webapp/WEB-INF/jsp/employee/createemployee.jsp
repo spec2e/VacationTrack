@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="stripes" uri="http://stripes.sourceforge.net/stripes.tld" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -8,7 +8,6 @@
     <stripes:layout-component name="content">
 
         <s:form beanclass="dk.speconsult.web.employee.ProcessEmployeeBean">
-            <s:label for="employee.firstName"/>
             <%@ include file="employeefields.jspf"%>
             <s:submit name="createEmployee" value="createEmployee"/>
         </s:form>

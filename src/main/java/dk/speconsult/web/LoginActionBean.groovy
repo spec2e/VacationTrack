@@ -1,48 +1,39 @@
 package dk.speconsult.web;
 
-import net.sourceforge.stripes.action.Resolution
-import dk.speconsult.web.BaseActionBean
+
+import dk.speconsult.model.User
 import net.sourceforge.stripes.action.DefaultHandler
-import net.sourceforge.stripes.action.UrlBinding
-import activejdbc.Base
-import dk.speconsult.model.Employee
-import dk.speconsult.model.Company
+import net.sourceforge.stripes.action.Resolution
+import net.sourceforge.stripes.validation.SimpleError
 import net.sourceforge.stripes.validation.Validate
-import net.sourceforge.stripes.action.StrictBinding;
+import net.sourceforge.stripes.validation.ValidateNestedProperties
 
 public class LoginActionBean extends BaseActionBean {
 
-    @Validate(required = true, on = ["login"])
-    private String userName;
 
-    @Validate(required = true, on = ["login"])
-    private String password;
+    @ValidateNestedProperties([
+    @Validate(on = ["register"], field = "userName", required = true),
+    @Validate(on = ["register"], field = "password", required = true)
+    ])
+    User user
 
     private String loginUrl;
 
     @DefaultHandler
     public Resolution showLogin() {
-
-
-        forward("/WEB-INF/jsp/login.jsp")
+        forward(LOGIN_JSP)
     }
 
     public Resolution login() {
 
-        if (loginUrl) {
-            redirect(loginUrl)
+        User foundUser = User.findFirst("userName='${user.userName}' and password='${user.password}'");
+        getContext().setUser(foundUser)
+        if (!foundUser) {
+            getContext().getValidationErrors().add("user.userName", new SimpleError("Kunne ikke finde brugernavn/password kombination"))
+            forward(LOGIN_JSP)
         } else {
-            Employee e = new Employee()
-            e.set("firstname", "John")
-            e.set("lastname", "Doe")
-            Company company = Company.createIt("company", "Maersk")
-            e.setParent(company)
-            e.saveIt()
-            forward("/WEB-INF/jsp/login.jsp")
-
+            redirect(dk.speconsult.web.employee.ListEmployeesActionBean.class)
         }
-
-
     }
 
 }

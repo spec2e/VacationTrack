@@ -5,7 +5,8 @@ import net.sourceforge.stripes.action.ActionBeanContext
 import net.sourceforge.stripes.action.Resolution
 import net.sourceforge.stripes.action.ForwardResolution
 import net.sourceforge.stripes.action.RedirectResolution
-import dk.speconsult.ext.VacationTrackActionBeanContext;
+import dk.speconsult.ext.VacationTrackActionBeanContext
+import dk.speconsult.model.Company;
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,6 +20,9 @@ public class BaseActionBean implements ActionBean {
     protected static final String EMPLOYEE_LIST_JSP = "/WEB-INF/jsp/employee/employeeList.jsp"
     protected static final String EMPLOYEE_CREATE_JSP = "/WEB-INF/jsp/employee/createemployee.jsp"
     protected static final String EMPLOYEE_EDIT_JSP = "/WEB-INF/jsp/employee/editemployee.jsp"
+    protected static final String LOGIN_JSP = "/WEB-INF/jsp/login.jsp"
+    protected static final String START_JSP = "/WEB-INF/jsp/start.jsp"
+    protected static final String REGISTER_JSP = "/WEB-INF/jsp/register.jsp"
 
     VacationTrackActionBeanContext context;
     String lastUrl;
@@ -48,6 +52,10 @@ public class BaseActionBean implements ActionBean {
 
     public VacationTrackActionBeanContext getContext() {
         return context;
+    }
+
+    public Company getCompany() {
+        return getContext().getCompany();
     }
 
     public Resolution forward(String uri) {

@@ -5,6 +5,8 @@ import net.sourceforge.stripes.action.DefaultHandler
 import dk.speconsult.web.BaseActionBean
 import dk.speconsult.model.Employee
 import dk.speconsult.model.Company
+import net.sourceforge.stripes.validation.Validate
+import net.sourceforge.stripes.validation.ValidateNestedProperties
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,8 +15,11 @@ import dk.speconsult.model.Company
  * Time: 22:01
  * To change this template use File | Settings | File Templates.
  */
-class ProcessEmployeeBean extends BaseActionBean {
+public class ProcessEmployeeBean extends BaseActionBean {
 
+    @ValidateNestedProperties([
+            @Validate(field="firstName", required=true, on=["editEmployee", "createEmployee"])
+    ])
     Employee employee
 
     int id
@@ -30,7 +35,7 @@ class ProcessEmployeeBean extends BaseActionBean {
     }
 
     public Resolution editEmployee() {
-        Company company = getContext().getCompany();
+        Company company = getCompany()
         List<Employee> emps = Employee.find("id=${id} and company_id=${company.id}").include(Company.class)
         Employee toUpdate = emps[0]
         toUpdate.copyFrom(employee)
@@ -39,14 +44,14 @@ class ProcessEmployeeBean extends BaseActionBean {
     }
 
     public Resolution createEmployee() {
-        Company company = getContext().getCompany();
+        Company company = getCompany()
         employee.setParent(company)
         employee.saveIt()
         redirect(ListEmployeesActionBean.class)
     }
 
     public Resolution deleteEmployee() {
-        Company company = getContext().getCompany();
+        Company company = getCompany()
         List<Employee> emps = Employee.find("id=${id} and company_id=${company.id}")
         Employee toUpdate = emps[0]
         toUpdate.delete()

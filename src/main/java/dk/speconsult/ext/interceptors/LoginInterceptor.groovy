@@ -8,6 +8,9 @@ import net.sourceforge.stripes.action.RedirectResolution
 import net.sourceforge.stripes.action.Resolution
 import net.sourceforge.stripes.controller.ExecutionContext
 import net.sourceforge.stripes.controller.Interceptor
+import net.sourceforge.stripes.controller.Intercepts
+import net.sourceforge.stripes.controller.LifecycleStage
+import dk.speconsult.web.StartActionBean
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,9 +19,10 @@ import net.sourceforge.stripes.controller.Interceptor
  * Time: 21:53
  * To change this template use File | Settings | File Templates.
  */
+@Intercepts(LifecycleStage.ActionBeanResolution)
 public class LoginInterceptor implements Interceptor {
 
-    private static final ArrayList<Class<? extends BaseActionBean >> ALLOW = [LoginActionBean.class]
+    private static final ArrayList<Class<? extends BaseActionBean >> ALLOW = [LoginActionBean.class, StartActionBean.class]
 
     public Resolution intercept(ExecutionContext execContext) throws Exception {
 
@@ -30,7 +34,7 @@ public class LoginInterceptor implements Interceptor {
 
         Class cls = actionBean.getClass();
 
-        if (ctx.getEmployee() == null && !ALLOW.contains(cls)) {
+        if (ctx.getUser() == null && !ALLOW.contains(cls)) {
 
             resolution = new RedirectResolution(LoginActionBean.class);
 

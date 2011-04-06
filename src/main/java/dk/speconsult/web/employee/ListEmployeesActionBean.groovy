@@ -14,7 +14,7 @@ import dk.speconsult.web.BaseActionBean
  * Time: 22:01
  * To change this template use File | Settings | File Templates.
  */
-class ListEmployeesActionBean extends BaseActionBean {
+public class ListEmployeesActionBean extends BaseActionBean {
 
     List<Employee> employees;
 

@@ -1,10 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-<%@ taglib prefix="stripes" uri="http://stripes.sourceforge.net/stripes.tld" %>
 <%@ taglib prefix="s" uri="http://stripes.sourceforge.net/stripes.tld" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<stripes:layout-definition>
+<s:layout-definition>
     <html>
     <head>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/layout.css">
@@ -18,9 +17,9 @@
 
     <div id="app">
         <div id="header">
-            <stripes:layout-component name="header">
+            <s:layout-component name="header">
                 <jsp:include page="header.jsp"/>
-            </stripes:layout-component>
+            </s:layout-component>
         </div>
 
         <div id="topmenu">
@@ -62,18 +61,18 @@
 
             <div id="content">
                 <s:errors/>
-                <stripes:layout-component name="content">
+                <s:layout-component name="content">
 
-                </stripes:layout-component>
+                </s:layout-component>
             </div>
 
         </div>
 
 
         <div id="footer">
-            <stripes:layout-component name="footer">
+            <s:layout-component name="footer">
                 <jsp:include page="footer.jsp"/>
-            </stripes:layout-component>
+            </s:layout-component>
         </div>
 
     </div>
@@ -84,4 +83,4 @@
     </html>
 
 
-</stripes:layout-definition>
+</s:layout-definition>

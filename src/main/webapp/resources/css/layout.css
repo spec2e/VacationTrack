@@ -32,6 +32,13 @@
     border: #d3d3d3 solid 1px;
 }
 
+#content.nomenu {
+    float: left;
+    width: 1024px;
+    min-height: 200px;
+    border: #d3d3d3 solid 1px;
+}
+
 #footer {
     float: left;
     width: 100%;
@@ -39,7 +46,7 @@
     text-align: right;
 }
 
-body {
+body, td {
     font-family: sans-serif;
     font-size: 12px;
     color: black;
@@ -103,4 +110,16 @@ body {
 input.error {
     border: 2px solid #880000;
     background-color: #FFDDDD;
+}
+
+.right {
+    text-align:right;
+}
+
+.center {
+    text-align:center;
+}
+
+.left {
+    text-align:left;
 }

@@ -2,30 +2,38 @@
 <table>
     <tbody>
     <tr>
-        <td>
+        <td class="right">
             <s:label for="employee.firstName"/>
+        </td>
+        <td class="left">
             <s:text name="employee.firstName" value="${actionBean.employee.firstName}"/>
         </td>
     </tr>
     <tr>
-        <td>
+        <td class="right">
             <s:label for="employee.lastName"/>
+        </td>
+        <td class="left">
             <s:text name="employee.lastName" value="${actionBean.employee.lastName}"/>
         </td>
     </tr>
     <tr>
-        <td>
+        <td class="right">
             <s:label for="employee.employeeId"/>
+        </td>
+        <td class="left">
             <s:text name="employee.employeeId" value="${actionBean.employee.employeeId}"/>
         </td>
     </tr>
     <tr>
-        <td>
+        <td class="right">
             <s:label for="employee.administrator"/>
+        </td>
+        <td class="left">
             <s:text name="employee.administrator" value="${actionBean.employee.administrator}"/>
         </td>
     </tr>
     </tbody>
-    <s:hidden name="employee.companyId" value="${actionBean.employee.companyId}" />
-    <s:hidden name="id" value="${actionBean.employee.id}" />
+    <s:hidden name="employee.companyId" value="${actionBean.employee.companyId}"/>
+    <s:hidden name="id" value="${actionBean.employee.id}"/>
 </table>

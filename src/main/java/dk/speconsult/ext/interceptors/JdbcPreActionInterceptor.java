@@ -17,7 +17,6 @@ import net.sourceforge.stripes.controller.LifecycleStage;
 @Intercepts(LifecycleStage.RequestInit)
 public class JdbcPreActionInterceptor implements Interceptor {
     public Resolution intercept(ExecutionContext context) throws Exception {
-        context.getActionBeanContext().getRequest().setCharacterEncoding("UTF-8");
         Base.open("java:comp/env/jdbc/vacationrecord");
         Base.connection().setAutoCommit(false);
         return context.proceed();

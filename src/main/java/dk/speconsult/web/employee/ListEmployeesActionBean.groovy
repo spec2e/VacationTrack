@@ -20,7 +20,8 @@ public class ListEmployeesActionBean extends BaseActionBean {
 
     @DefaultHandler
     public Resolution listEmployees() {
-        employees = Employee.findAll().include(Company.class);
+        Company company = getCompany()
+        employees = Employee.find("company_id=${company.id}").include(Company.class);
         forward(EMPLOYEE_LIST_JSP)
     }
 

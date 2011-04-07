@@ -27,7 +27,7 @@ public class ProcessEmployeeBean extends BaseActionBean {
     @DefaultHandler
     public Resolution showEmployee() {
         if (id > 0) {
-            employee = Employee.findById(id)
+            employee = Employee.findFirst("id=${id} and company_id=${company.id}")
             forward(EMPLOYEE_EDIT_JSP)
         } else {
             forward(EMPLOYEE_CREATE_JSP)

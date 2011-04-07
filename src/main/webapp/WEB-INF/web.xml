@@ -20,6 +20,11 @@
         <res-auth>Container</res-auth>
     </resource-ref>
 
+    <filter>
+        <display-name>charsetfilter</display-name>
+        <filter-name>charsetfilter</filter-name>
+        <filter-class>dk.speconsult.filter.CharsetFilter</filter-class>
+    </filter>
 
     <filter>
         <display-name>Stripes Filter</display-name>
@@ -34,6 +39,11 @@
             <param-value>dk.speconsult.ext</param-value>
         </init-param>
     </filter>
+
+    <filter-mapping>
+        <filter-name>charsetfilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <filter-mapping>
         <filter-name>StripesFilter</filter-name>
